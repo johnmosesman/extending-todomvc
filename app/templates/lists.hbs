@@ -1,8 +1,14 @@
-My Lists
-<ul>
-  {{#each list in model}}
-    <li>{{#link-to "lists.show" list}}{{list.title}}{{/link-to}}</li>
-  {{/each}}
-</ul>
-<br/>
-{{outlet}}
+<div class="row">
+  <div class="small-6 columns">
+    My Lists
+    <ul>
+      {{#each list in model}}
+        <li>{{#link-to "lists.show" list}}{{list.title}}{{/link-to}}</li>
+      {{/each}}
+    </ul>
+    <br/>
+  </div>
+  <div class="small-6 columns">
+    {{outlet}}
+  </div>
+</div>

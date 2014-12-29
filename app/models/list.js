@@ -11,4 +11,4 @@ List.reopenClass({
   ]
 });
 
-export default List
+export default List;
