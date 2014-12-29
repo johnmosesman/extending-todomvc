@@ -1,5 +1,5 @@
 <ul>
   {{#each list in model}}
-    <li>{{list.title}}</li>
+    <li>{{#link-to "lists.show" list}}{{list.title}}{{/link-to}}</li>
   {{/each}}
 </ul>
