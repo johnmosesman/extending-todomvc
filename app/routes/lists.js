@@ -19,7 +19,6 @@ export default Ember.Route.extend({
 
       var _this = this;
       list.save().then(function(list) {
-        console.log(list.id);
         _this.transitionTo('lists.show', list);
       });
     }
