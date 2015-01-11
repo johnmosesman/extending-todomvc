@@ -5,6 +5,15 @@ export default Ember.Route.extend({
     return this.store.find('list', params.list_id);
   },
 
+  renderTemplate: function() {
+    this.render('lists/show', { controller: 'lists/show' } );   // 1
+
+    this.render('todos', {  // 2)
+      into: 'lists/show',   // 3)
+      outlet: 'todos',      // 4)
+    });
+  },
+
   actions: {
     deleteList: function() {
       var list = this.modelFor(this.routeName);
