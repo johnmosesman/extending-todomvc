@@ -1,1 +1,15 @@
-<p>I'm in todos.hbs</p>
+<div class="row">
+  <div class="small-8 columns">
+    {{input type="text" value=newTodoTitle action="createTodo" placeholder="New Todo" }}
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns">
+    <ul>
+      {{#each todo in model.todos}}
+        <li>{{todo.title}}</li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

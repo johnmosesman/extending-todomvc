@@ -15,6 +15,26 @@ export default Ember.Route.extend({
   },
 
   actions: {
+    createTodo: function() {
+      var newTodoTitle = this.controllerFor(this.routeName).get('newTodoTitle');
+
+      if (Ember.isBlank(newTodoTitle)) { return false; }
+
+      var list = this.modelFor(this.routeName);   // 1)
+
+      var todo = this.store.createRecord('todo', {
+        title: newTodoTitle,
+        list: list   // 2)
+      });
+
+      this.controllerFor(this.routeName).set('newTodoTitle', '');
+
+      todo.save().then(function(todo) {
+        list.get('todos').addObject(todo);  // 3)*
+        list.save();
+      });
+    },
+
     deleteList: function() {
       var list = this.modelFor(this.routeName);
       list.destroyRecord();
