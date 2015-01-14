@@ -35,6 +35,17 @@ export default Ember.Route.extend({
       });
     },
 
+    deleteTodo: function(id) {
+      var list = this.modelFor(this.routeName);
+
+      this.store.find('todo', id).then(function(todo) {   // 1)
+        list.get('todos').removeObject(todo);   // 2)
+        list.save();
+
+        todo.destroyRecord();   // 3)
+      });
+    },
+
     deleteList: function() {
       var list = this.modelFor(this.routeName);
       list.destroyRecord();

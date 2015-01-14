@@ -7,8 +7,16 @@
 <div class="row">
   <div class="small-12 columns">
     <ul>
-      {{#each todo in model.todos}}
-        <li>{{todo.title}}</li>
+      {{#each todo in model.todos itemController="todo"}}
+        <li>
+          {{#if todo.isEditing}}
+            {{edit-title type="text" value=todo.model.title focus-out="updateTitle" insert-newline="updateTitle"}}
+          {{else}}
+            {{todo.model.title}}
+            <a href="#" {{action "editTitle"}}>{{fa-icon "edit"}}</a>
+            <a href="#" {{action "deleteTodo" todo.model.id}}>{{fa-icon "trash"}}</a>
+          {{/if}}
+        </li>
       {{/each}}
     </ul>
   </div>
