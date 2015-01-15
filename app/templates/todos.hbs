@@ -9,6 +9,7 @@
     <ul>
       {{#each todo in model.todos itemController="todo"}}
         <li>
+          {{input type="checkbox" checked=todo.isCompleted}}
           {{#if todo.isEditing}}
             {{edit-title type="text" value=todo.model.title focus-out="updateTitle" insert-newline="updateTitle"}}
           {{else}}
