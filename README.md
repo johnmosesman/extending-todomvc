@@ -1,7 +1,6 @@
 # Extending-todomvc
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This app is an extension of Ember's TodoMVC application using Ember CLI. I've written a few tutorials explaining each step of the way on my blog, [found here.](http://johnmosesman.com/extending-todomvc-with-ember-cli-part-1/)
 
 ## Prerequisites
 
